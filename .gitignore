@@ -33,3 +33,6 @@
 
 # vispara
 *.*~*
+*.bak
+*.working
+*.new
