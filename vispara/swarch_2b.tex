@@ -7,6 +7,8 @@
 \usepackage{xspace} 
 \geometry{tmargin=3cm, bmargin=2.2cm, lmargin=2.2cm, rmargin=2cm}
 \usepackage{todonotes} %Used for the figure placeholders
+\pdfminorversion=5
+\DeclareGraphicsExtensions{.pdf}
 
 \newcommand\todoin[2][]{\todo[inline, caption={2do}, #1]{
 \begin{minipage}{\textwidth-4pt}#2\end{minipage}}}
@@ -92,7 +94,7 @@ The following interfaces are considerd:
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Context_ Main}
+    \includegraphics[width=\textwidth]{Context__Main}
     \caption{Context diagram for \rem.
         }\label{fig:cc-context}
 \end{figure}
@@ -103,7 +105,7 @@ Each of these services is provided by a different component (respectively RMMCom
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Main Component Diagram}
+    \includegraphics[width=\textwidth]{Main_Component_Diagram}
     \caption{Main components}\label{fig:cc-primary}
 \end{figure}
 
@@ -122,7 +124,7 @@ Each of these services is provided by a different component (respectively RMMCom
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Decomposition_ Communication with RMM}
+    \includegraphics[width=\textwidth]{Decomposition__Communication_with_RMM}
     \caption{Decomposition of the \texttt{RMMCommunication}}\label{fig:dec_rmmcomm}
 \end{figure}
 
@@ -152,7 +154,7 @@ Each of these services is provided by a different component (respectively RMMCom
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Decomposition_ Communication with third parties}
+    \includegraphics[width=\textwidth]{Decomposition__Communication_with_third_parties}
     \caption{Decomposition of the \texttt{ThirdPartyCommunication}}\label{fig:dec_thirdparty}
 \end{figure}
 
@@ -183,13 +185,13 @@ The Billing component may handle the resending of unacknowledged requests itself
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Decomposition_ AnomalyDetector}
+    \includegraphics[width=\textwidth]{Decomposition__AnomalyDetector}
     \caption{Decomposition of the \texttt{AnomalyDetector}}\label{fig:dec_anomaly}
 \end{figure}
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Decomposition_ AlarmHandler component}
+    \includegraphics[width=\textwidth]{Decomposition__AlarmHandler_component}
     \caption{Decomposition of the \texttt{AlarmHandler}}\label{fig:dec_alarmhandler}
 \end{figure}
 
@@ -218,7 +220,7 @@ Assuming that RMMs send only valid alarms, an AlarmValidator is not necessary an
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Decomposition_ MeasurementDBManager}
+    \includegraphics[width=\textwidth]{Decomposition__MeasurementDBManager}
     \caption{Decomposition of the \texttt{MeasurementDBManager}}\label{fig:dec_measurement}
 \end{figure}
 
@@ -277,7 +279,7 @@ There are three measurement database nodes, as long as each node has an availabi
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Deployment Diagram}
+    \includegraphics[width=\textwidth]{Deployment_Diagram}
     \caption{Diagram for the deployment view.}\label{fig:depl_primary}
 \end{figure}
 
@@ -285,10 +287,10 @@ There are three measurement database nodes, as long as each node has an availabi
 
 \subsection{User profile creation}
 Customers can register in two ways: via the CallCenter and through the online interface.
-In the first case (fig. \ref{fiq:seq_registration1}) a CallCenter Operator initiates the registration and asks the customer for the required information.
+In the first case (fig. \ref{fig:seq_registration1}) a CallCenter Operator initiates the registration and asks the customer for the required information.
 When all required information is acquired the CallCenter Operator goes over the information with the customer to verify and then confirms the registration.
 
-In the second case (fig. \ref{fiq:seq_registration2}) the customer iniates the registration online and enters the required information which is stored by \rem as a tentative registration.
+In the second case (fig. \ref{fig:seq_registration2}) the customer iniates the registration online and enters the required information which is stored by \rem as a tentative registration.
 A CallCenter Operator then goes over the information and approves the registration.
 Then the customer is sent a unique registration identifier via regular mail, which he can use to confirm the registration to \rem.
 
@@ -297,24 +299,24 @@ A technician is also scheduled to install one or more new devices.
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Registration_ CallCenter}
+    \includegraphics[width=\textwidth]{Registration__CallCenter}
     \caption{Customer registration through the CallCenter.}
     \label{fig:seq_registration1}
 \end{figure}
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Registration_ Customer}
+    \includegraphics[width=\textwidth]{Registration__Customer}
     \caption{Customer registration through the online interface.}
     \label{fig:seq_registration2}
 \end{figure}
 
 \subsection{User profile association with a remote monitoring module}
-After installing a RMM the technician notifies \rem, \rem then updates the customer's information and notifies the UIS (fig. \ref{fiq:seq_association}).
+After installing a RMM the technician notifies \rem, \rem then updates the customer's information and notifies the UIS (fig. \ref{fig:seq_association}).
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{User profile association with a remote monitoring module}
+    \includegraphics[width=\textwidth]{User_profile_association_with_a_remote_monitoring_module}
     \caption{Device association with a customer.
         }\label{fig:seq_association}
 \end{figure}
@@ -336,16 +338,16 @@ The RMM sends a measurement to \rem through the RMMFacade (fig. \ref{fig:seq_mea
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{RMM Transmission}
+    \includegraphics[width=\textwidth]{RMM_Transmission}
     \caption{Incoming Measurement.}
     \label{fig:seq_measurement}
 \end{figure}
 
-When a measurement is lost or an RMM does not send a measurement (fig. \ref{fiq:seq_missed}), this is noticed by the MeasurementArrivalMonitor which notifies the \rem operators and the alarm recipient of the problem.
+When a measurement is lost or an RMM does not send a measurement (fig. \ref{fig:seq_missed}), this is noticed by the MeasurementArrivalMonitor which notifies the \rem operators and the alarm recipient of the problem.
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{Missing measurement}
+    \includegraphics[width=\textwidth]{Missing_measurement}
     \caption{Missing measurement.}
     \label{fig:seq_missed}
 \end{figure}
@@ -366,7 +368,7 @@ Low priority alarms are first sent to the AnomalyDetector for validation. If the
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=\textwidth]{RMM Alarm}
+    \includegraphics[width=\textwidth]{RMM_Alarm}
     \caption{An alarm from an RMM reaches \rem.}
     \label{fig:seq_alarm}
 \end{figure}
